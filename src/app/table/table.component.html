@@ -1,0 +1,22 @@
+<h1>Firebase Search</h1>
+<label for="name">Search person:</label>
+<input
+  type="search"
+  [(ngModel)]="searchName"
+  (change)="onSearchChange()"
+  name="name"
+/>
+<table id="customers">
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let person of persons">
+    <td>{{ person.name }}</td>
+    <td>{{ person.city }}</td>
+    <td>{{ person.age }}</td>
+  </tr>
+</table>
+
+<ng-template [ngIf]="getPersonList$ | async"></ng-template>
